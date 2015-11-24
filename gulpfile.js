@@ -39,7 +39,7 @@ function handleErrors() {
   Styles Task
 */
 gulp.task('styles', function() {
-  gulp.src('assets/scss/style.scss')
+  gulp.src('assets/sass/style.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(gulp.dest('assets/css/'))
@@ -86,6 +86,6 @@ function buildScript(file, watch) {
 }
 
 gulp.task('default', ['styles','scripts','browser-sync'], function() {
-  gulp.watch('assets/scss/*', ['styles']); // gulp watch for sass changes
+  gulp.watch('assets/sass/*', ['styles']); // gulp watch for sass changes
   return buildScript('main.js', true); // browserify watch for JS changes
 });

@@ -13,6 +13,7 @@ class Playlist extends React.Component {
     super();
 
     this.state = {
+      token : 'BQDcyC2Qi3hZd7gibgv1BM2PAAE7mYnXzJHHggyPfI82NQQ0qFJYMOB-vhRp_Ox-eXVN_HmS7yaGF48GGV2O7g',
       playlist : {
         items : {}
       }
@@ -20,16 +21,21 @@ class Playlist extends React.Component {
   }
 
   componentDidMount() {
+    // Get access token from spotify
+
     // Get data from Spotify
     $.ajax({
        url: "https://api.spotify.com/v1/users/evil/playlists/27xfuWd9P7XaTNxLriKY6S/tracks",
        type: "GET",
        context: this,
-       beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer BQA4v9Y45KZsmSs-M1s0VxOP7ijJb1Dww8X2153RHmVZX6SNRb8Pn3pdUygrjmPSCkOuUQdayHH_I10543qjHg');},
+       beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + this.state.token);},
        success: function(data) {
          // Save the data to state
          this.state.playlist = data;
          this.setState({ playlist : this.state.playlist });
+       },
+       error: function(error) {
+         console.log(error);
        }
     });
   }
@@ -43,7 +49,7 @@ class Playlist extends React.Component {
       <table id="main-table">
         <thead>
           <tr>
-            <th></th>
+            <th id="player"></th>
             <th>Track</th>
             <th>Artist</th>
             <th>Album</th>
@@ -68,8 +74,6 @@ class Song extends React.Component {
   }
 
   render() {
-    console.log(this.props.item);
-
     let track = this.props.item.track;
 
     return (
