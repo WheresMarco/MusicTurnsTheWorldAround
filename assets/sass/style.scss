@@ -17,7 +17,7 @@ $red: #F14055;
 body {
   font: 400 16px/30px 'Quattrocento', serif;
   color: $white;
-  background: #000 url("http://femmebot.github.io/google-type/images/the-trees-and-the-axe.jpeg") no-repeat;
+  background: #000 url("/assets/img/bg.jpg") no-repeat;
   background-size: cover;
   -webkit-font-smoothing: antialiased;
 }
@@ -30,7 +30,7 @@ a {
   max-width: 800px;
   margin: 60px auto;
   background-color: rgba(0, 0, 0, 0.6);
-  padding: 40px;
+  padding: 40px 40px 30px;
 }
 
 .button {
@@ -73,8 +73,7 @@ a {
   margin: 30px 0;
   border-top: 5px solid $white;
   border-bottom: 5px solid $white;
-  padding: 20px 0;
-  border-collapse: collapse;
+  padding: 10px 0;
 
   a {
     text-decoration: none;
@@ -86,22 +85,18 @@ a {
       font-family: 'Oswald', sans-serif;
       text-transform: uppercase;
       letter-spacing: .02em;
+      padding-bottom: 5px;
     }
   }
 
   tbody tr {
     -webkit-transition: all 0.2s;
 
-    &:hover {
-      background-color: rgba($white, 0.8);
-      color: $black;
-
-      a {
-        color: $black;
-      }
+    td {
     }
 
-    td {
+    a:hover {
+      text-decoration: underline;
     }
   }
 }
