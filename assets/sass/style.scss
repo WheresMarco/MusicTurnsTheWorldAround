@@ -1,0 +1,116 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:700);
+@import url(https://fonts.googleapis.com/css?family=Quattrocento);
+
+/* $COLORS */
+$black: #000;
+$white: #fff;
+$red: #F14055;
+
+/* $RESET */
+* {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* $STYLES */
+body {
+  font: 400 16px/30px 'Quattrocento', serif;
+  color: $white;
+  background: #000 url("http://femmebot.github.io/google-type/images/the-trees-and-the-axe.jpeg") no-repeat;
+  background-size: cover;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: $white;
+}
+
+#wrapper {
+  max-width: 800px;
+  margin: 60px auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+}
+
+.button {
+  border: 2px solid $white;
+  padding: 5px 10px;
+  background: transparent;
+  color: $white;
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-right: 10px;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: .04em;
+  -webkit-transition: all 0.3s;
+
+  &:hover {
+    background-color: $white;
+    color: $black;
+    cursor: pointer;
+  }
+}
+
+#page-header {
+  h1 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    border-bottom: 5px solid $white;
+    padding-bottom: 20px;
+  }
+
+  p {
+    width: 80%;
+  }
+}
+
+#main-table {
+  width: 100%;
+  margin: 30px 0;
+  border-top: 5px solid $white;
+  border-bottom: 5px solid $white;
+  padding: 20px 0;
+  border-collapse: collapse;
+
+  a {
+    text-decoration: none;
+  }
+
+  thead {
+    th {
+      text-align: left;
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+    }
+  }
+
+  tbody tr {
+    -webkit-transition: all 0.2s;
+
+    &:hover {
+      background-color: rgba($white, 0.8);
+      color: $black;
+
+      a {
+        color: $black;
+      }
+    }
+
+    td {
+    }
+  }
+}
+
+#page-footer {
+  font-size: 0.9em;
+  letter-spacing: .04em;
+
+  #heart {
+    color: $red;
+  }
+}
