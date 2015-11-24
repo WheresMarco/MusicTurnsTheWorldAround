@@ -63,14 +63,24 @@ class Playlist extends React.Component {
 */
 @autobind
 class Song extends React.Component {
+  toggleTrack(trackId) {
+    document.getElementById(trackId).play();
+  }
+
   render() {
     console.log(this.props.item);
+
+    let track = this.props.item.track;
+
     return (
       <tr>
-        <td>►</td>
-        <td><a href="#" target="_blank">{this.props.item.track.name}</a></td>
-        <td><a href="#" target="_blank">{this.props.item.track.artists[0].name}</a></td>
-        <td><a href="#" target="_blank">{this.props.item.track.album.name}</a></td>
+        <td>
+          <audio id={track.id} src={track.preview_url}></audio>
+          <a onClick={this.toggleTrack.bind(null, track.id)}>►</a>
+        </td>
+        <td><a href={track.external_urls.spotify} target="_blank">{track.name}</a></td>
+        <td><a href={track.artists[0].external_urls.spotify} target="_blank">{track.artists[0].name}</a></td>
+        <td><a href={track.album.external_urls.spotify} target="_blank">{track.album.name}</a></td>
       </tr>
     )
   }
