@@ -1,21 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import autobind from 'autobind-decorator';
+import $ from 'jquery';
 
 /*
   <Playlist/>
   The main playlist component
 */
+@autobind
 class Playlist extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      songs : {}
+      playlist : {
+        items : {}
+      }
     }
   }
 
   componentDidMount() {
     // Get data from Spotify
+    $.ajax({
+       url: "https://api.spotify.com/v1/users/evil/playlists/27xfuWd9P7XaTNxLriKY6S/tracks",
+       type: "GET",
+       context: this,
+       beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer BQA4v9Y45KZsmSs-M1s0VxOP7ijJb1Dww8X2153RHmVZX6SNRb8Pn3pdUygrjmPSCkOuUQdayHH_I10543qjHg');},
+       success: function(data) {
+         // Save the data to state
+         this.state.playlist = data;
+         this.setState({ playlist : this.state.playlist });
+       }
+    });
+  }
+
+  renderSong(key) {
+    return <Song key={key} index={key} item={this.state.playlist.items[key]} />;
   }
 
   render() {
@@ -30,7 +50,7 @@ class Playlist extends React.Component {
           </tr>
         </thead>
         <tbody>
-          <Song />
+          {Object.keys(this.state.playlist.items).reverse().map(this.renderSong)}
         </tbody>
       </table>
     )
@@ -41,14 +61,16 @@ class Playlist extends React.Component {
   <Song />
   An individual song component
 */
+@autobind
 class Song extends React.Component {
   render() {
+    console.log(this.props.item);
     return (
       <tr>
         <td>►</td>
-        <td><a href="#" target="_blank">Uma</a></td>
-        <td><a href="#" target="_blank">Panama Wedding</a></td>
-        <td><a href="#" target="_blank">Parallel Play</a></td>
+        <td><a href="#" target="_blank">{this.props.item.track.name}</a></td>
+        <td><a href="#" target="_blank">{this.props.item.track.artists[0].name}</a></td>
+        <td><a href="#" target="_blank">{this.props.item.track.album.name}</a></td>
       </tr>
     )
   }
