@@ -11,6 +11,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/assets\/img\/bg.JPG": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.33326e+06,
+		"inputAbbreviatedPath": "\/assets\/img\/bg.JPG",
+		"outputAbbreviatedPath": "\/assets\/img\/bg.JPG",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/sass\/style.scss": {
 		"createSourceMap": 1,
 		"debugStyle": 0,
