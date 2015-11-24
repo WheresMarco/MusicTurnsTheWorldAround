@@ -6,6 +6,18 @@ import ReactDOM from 'react-dom';
   The main playlist component
 */
 class Playlist extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      songs : {}
+    }
+  }
+
+  componentDidMount() {
+    // Get data from Spotify
+  }
+
   render() {
     return (
       <table id="main-table">
