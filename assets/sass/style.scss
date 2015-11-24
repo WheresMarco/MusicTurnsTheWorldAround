@@ -18,12 +18,18 @@ body {
   font: 400 16px/30px 'Quattrocento', serif;
   color: $white;
   background: #000 url("/assets/img/bg.jpg") no-repeat;
-  background-size: cover;
+  background-size: 100%;
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
 }
 
 a {
   color: $white;
+
+  &.button {
+    text-decoration: none;
+    font-size: 0.7em;
+  }
 }
 
 #wrapper {
@@ -79,6 +85,10 @@ a {
       width: 100%;
     }
   }
+
+  #buttons {
+    margin-top: 20px;
+  }
 }
 
 #main-table {
@@ -99,6 +109,10 @@ a {
       text-transform: uppercase;
       letter-spacing: .02em;
       padding-bottom: 5px;
+
+      &#player {
+        width: 20px;
+      }
     }
   }
 
@@ -106,6 +120,8 @@ a {
     -webkit-transition: all 0.2s;
 
     td {
+      line-height: 1.5em;
+      height: 30px;
     }
 
     a:hover {
