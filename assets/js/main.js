@@ -79,7 +79,7 @@ class Song extends React.Component {
     return (
       <tr>
         <td>
-          <audio id={track.id} src={track.preview_url}></audio>
+          <audio id={track.id} src={track.preview_url} preload="none"></audio>
           <a onClick={this.toggleTrack.bind(null, track.id)}>►</a>
         </td>
         <td><a href={track.external_urls.spotify} target="_blank">{track.name}</a></td>
