@@ -90,6 +90,11 @@ a {
     #main-table tbody tr td {
       line-height: 1.4em;
       height: 30px; }
+      #main-table tbody tr td .player {
+        cursor: pointer; }
+        #main-table tbody tr td .player:hover {
+          text-decoration: none;
+          opacity: 0.5; }
     #main-table tbody tr a:hover {
       text-decoration: underline; }
 

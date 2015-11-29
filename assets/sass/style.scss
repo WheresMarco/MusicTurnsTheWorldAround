@@ -122,6 +122,15 @@ a {
     td {
       line-height: 1.4em;
       height: 30px;
+
+      .player {
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: none;
+          opacity: 0.5;
+        }
+      }
     }
 
     a:hover {
