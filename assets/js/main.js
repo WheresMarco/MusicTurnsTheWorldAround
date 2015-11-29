@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import autobind from 'autobind-decorator';
 import $ from 'jquery';
 
+var APIUrl = "http://127.0.0.1:5000";
+
 /*
   <Playlist/>
   The main playlist component
@@ -13,7 +15,6 @@ class Playlist extends React.Component {
     super();
 
     this.state = {
-      token : 'BQDcyC2Qi3hZd7gibgv1BM2PAAE7mYnXzJHHggyPfI82NQQ0qFJYMOB-vhRp_Ox-eXVN_HmS7yaGF48GGV2O7g',
       playlist : {
         items : {}
       }
@@ -21,14 +22,11 @@ class Playlist extends React.Component {
   }
 
   componentDidMount() {
-    // Get access token from spotify
-
-    // Get data from Spotify
+    // Get data from man in the middle API
     $.ajax({
-       url: "https://api.spotify.com/v1/users/evil/playlists/27xfuWd9P7XaTNxLriKY6S/tracks",
+       url: APIUrl,
        type: "GET",
        context: this,
-       beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + this.state.token);},
        success: function(data) {
          // Save the data to state
          this.state.playlist = data;
